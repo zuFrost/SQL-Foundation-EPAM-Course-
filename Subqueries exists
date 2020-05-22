@@ -1,0 +1,12 @@
+--Burt Temple
+select f2.title, 
+		f2.release_year
+from film f2 
+where exists (
+					select fa.film_id
+					from film_actor fa
+					where fa.actor_id = (select a.actor_id
+										from actor a
+										where upper(a.first_name) = 'BURT' and upper(a.last_name) = 'TEMPLE' )
+					and f2.film_id = fa.film_id )
+order by 2 desc
