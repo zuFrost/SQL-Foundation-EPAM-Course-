@@ -1,0 +1,12 @@
+SELECT *
+FROM city c
+WHERE c.country_id = 13
+ORDER BY 1
+
+--id city Mogilev 339
+UPDATE city 
+SET city = 'Mogilev'
+WHERE city_id = 339;
+
+SELECT *
+FROM city_renames cr;
