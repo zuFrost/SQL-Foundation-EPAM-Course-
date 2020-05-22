@@ -1,0 +1,11 @@
+select max_len_film.title as mofie_title,
+		a.first_name || ' ' || a.last_name as actor_full_name	
+from 
+(select * 
+from film f2 
+order by f2.length desc
+limit (3)) as max_len_film
+inner join film_actor fa 
+on fa.film_id = max_len_film.film_id
+inner join actor a
+on a.actor_id = fa.actor_id ;
