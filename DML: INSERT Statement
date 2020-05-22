@@ -1,0 +1,32 @@
+--id Belarus = 13
+
+--SELECT *
+--FROM city c 
+--WHERE
+----upper(c.city ) = 'MINSK';
+--c.country_id = 13;
+
+
+--SELECT *
+--FROM country cnt
+--WHERE upper(cnt.country ) = 'BELARUS';
+
+--INSERT INTO city (city, country_id )
+--VALUES ('Minsk', 13);
+
+INSERT INTO city (city, country_id )
+SELECT 'Grodno',
+		cnt.country_id
+FROM country cnt
+WHERE upper(cnt.country) = 'BELARUS'
+
+SELECT *
+FROM city c
+WHERE c.country_id = 13
+
+INSERT INTO city (city, country_id )
+SELECT 'Brest',
+		cnt.country_id
+FROM country cnt
+WHERE upper(cnt.country) = 'BELARUS'
+RETURNING city_id;
